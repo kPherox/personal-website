@@ -17,7 +17,7 @@ defaults:
       layout: "post"
 
 projects:
-  sort_by: pushed
+  sort_by: stars_with_pushed
   # sort_by options:
   #   - pushed
   #   - stars
@@ -26,7 +26,7 @@ projects:
   exclude:
     forks: true
     projects:
-    # - repo-name
+      - kpherox.github.io
 
 social_media:
   keybase: kpherox
