@@ -1,35 +1,34 @@
-{% if topic.web_url %}
-  <a href="{{ topic.web_url }}" class="github-component position-relative hover-grow height-full no-underline d-flex flex-column flex-justify-center text-center border border-gray-light rounded-1 bg-white p-5">
-    {% if topic.image_url %}
-      <img src="{{ topic.image_url }}" width="64" height="64" class="mx-auto rounded-1 mb-3" alt="{{ topic.name }}">
-    {% else %}
-      <div
-        class="bg-blue-light f4 text-gray-light text-bold rounded-1 flex-shrink-0 text-center mx-auto mb-3"
-        style="width:64px; height:64px; line-height:64px;"
-      >
-        #
-      </div>
-    {% endif %}
-    <p class="f3 lh-condensed text-center link-gray-dark mb-0 mt-1">{{ topic.name }}</p>
-    {% if topic.description %}
-      <p class="f5 text-gray text-center mb-0 mt-1">{{ topic.description }}</p>
-    {% endif %}
+{% if topic.tag %}
+  {% assign web_url = 'https://github.com/topics/' | append: topic.tag %}
+  {% capture image_url %}https://raw.githubusercontent.com/github/explore/{{ site.interests.explore_hash }}/topics/{{ topic.tag }}/{{ topic.tag }}.png{% endcapture %}
+{% else %}
+  {% capture web_url %}{{ topic.web_url }}{% endcapture %}
+  {% capture image_url %}{{ topic.image_url }}{% endcapture %}
+{% endif %}
+
+{% capture block %}
+  {% if topic.has_image or topic.image_url %}
+    <img src="{{ image_url }}" width="64" height="64" class="mx-auto rounded-1 mb-3" alt="{{ topic.name }}">
+  {% else %}
+    <div
+      class="bg-blue-light f4 text-gray-light text-bold rounded-1 flex-shrink-0 text-center mx-auto mb-3"
+      style="width:64px; height:64px; line-height:64px;"
+    >
+      #
+    </div>
+  {% endif %}
+    <p class="f3 lh-condensed text-center mb-0 mt-1 {% if topic.tag or topic.web_url %}link-gray-dark{% endif %}">{{ topic.name }}</p>
+  {% if topic.description %}
+    <p class="f5 text-gray text-center mb-0 mt-1">{{ topic.description }}</p>
+  {% endif %}
+{% endcapture %}
+
+{% if topic.tag or topic.web_url %}
+  <a href="{{ web_url }}" class="github-component position-relative height-full text-center border border-gray-light rounded-1 bg-white p-5 hover-grow no-underline d-flex flex-column flex-justify-center">
+    {{ block }}
   </a>
 {% else %}
   <div class="github-component position-relative height-full text-center border border-gray-light rounded-1 bg-white p-5">
-    {% if topic.image_url %}
-      <img src="{{ topic.image_url }}" width="64" height="64" class="mx-auto rounded-1 mb-3" alt="{{ topic.name }}">
-    {% else %}
-      <div
-        class="bg-blue-light f4 text-gray-light text-bold rounded-1 flex-shrink-0 text-center mx-auto mb-3"
-        style="width:64px; height:64px; line-height:64px;"
-      >
-        #
-      </div>
-    {% endif %}
-    <p class="f3 lh-condensed text-center mb-0 mt-1">{{ topic.name }}</p>
-    {% if topic.description %}
-      <p class="f5 text-gray text-center mb-0 mt-1">{{ topic.description }}</p>
-    {% endif %}
+    {{ block }}
   </div>
 {% endif %}
