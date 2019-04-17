@@ -52,8 +52,20 @@ interests:
       tag: electron
       has_image: true
 
+    - name: Vue.js
+      tag: vue
+      has_image: true
+
+    - name: Go
+      tag: go
+      has_image: true
+
     - name: Swift
       tag: swift
+      has_image: true
+
+    - name: TypeScript
+      tag: typescript
       has_image: true
 
     - name: Laravel
