@@ -1,3 +1,19 @@
+{% capture repo_icon %}
+  {% octicon repo height:20 class:"mr-1 v-align-middle" fill:"#586069" aria-label:repo %}
+{% endcapture %}
+
+{% capture repo-forked_icon %}
+  {% octicon repo-forked height:20 class:"mr-1 v-align-middle" fill:"#586069" aria-label:repo %}
+{% endcapture %}
+
+{% capture star_icon %}
+  {% octicon star height:16 class:"mr-1" aria-hidden:true %}
+{% endcapture %}
+
+{% capture git-branch_icon %}
+  {% octicon git-branch height:16 class:"mr-1" aria-hidden:true %}
+{% endcapture %}
+
 <h2 {% if site.style == 'dark' %}class="text-white"{% endif %}>My Projects</h2>
 <p class="f4 mb-4 {% if site.style == 'dark' %}text-white{% else %}text-gray{% endif %}">GitHub repositories that I've built.</p>
 <div class="d-sm-flex flex-wrap gutter-condensed mb-4">
