@@ -45,15 +45,17 @@ social_media:
   # vk: your_username
   # youtube: your_username
 
-topics:
-  - name: Electron
-    web_url: https://github.com/topics/electron
-    image_url: https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/electron/electron.png
+interests:
+  explore_hash: 80688e429a7d4ef2fca1e82350fe8e3517d3494d
+  topics:
+    - name: Electron
+      tag: electron
+      has_image: true
 
-  - name: Swift
-    web_url: https://github.com/topics/swift
-    image_url: https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/swift/swift.png
+    - name: Swift
+      tag: swift
+      has_image: true
 
-  - name: Laravel
-    web_url: https://github.com/topics/laravel
-    image_url: https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/laravel/laravel.png
+    - name: Laravel
+      tag: laravel
+      has_image: true
