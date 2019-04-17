@@ -22,9 +22,9 @@ projects:
   #   - pushed
   #   - stars
   #   - stars_with_pushed
-  limit: 9
+  limit: 12
   exclude:
-    forks: true
+    forks: false
     projects:
       - kpherox.github.io
 
