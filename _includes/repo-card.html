@@ -3,7 +3,7 @@
     <div class="d-flex flex-justify-between flex-items-start mb-1">
       <h1 class="f4 lh-condensed mb-1">
         <a href="{{ repository.html_url }}">
-          {% octicon repo height:20 class:"mr-1 v-align-middle" fill:"#586069" aria-label:repo %}
+          {{ repo_icon  }}
           {{ repository.name }}
         </a>
       </h1>
@@ -17,13 +17,13 @@
     {% endif %}
     {% if repository.stargazers_count %}
       <a href="{{ repository.html_url }}/stargazers" class="d-inline-block link-gray mr-4">
-        {% octicon star height:16 class:"mr-1" aria-hidden:true %}
+        {{ star_icon  }}
         {{ repository.stargazers_count }}
       </a>
     {% endif %}
     {% if repository.forks_count %}
       <a href="{{ repository.html_url }}/network/members" class="d-inline-block link-gray mr-4">
-        {% octicon git-branch height:16 class:"mr-1" aria-hidden:true %}
+        {{ git-branch_icon  }}
         {{ repository.forks_count }}
       </a>
     {% endif %}
