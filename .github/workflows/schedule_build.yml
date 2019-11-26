@@ -1,0 +1,18 @@
+name: schedule build
+
+on: 
+  schedule:
+    - cron: '*/5 * * * *'
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/github-script@0.3.0
+      with:
+        github-token: ${{ secrets.GITHUB_PAGES_DEPLOY_TOKEN }}
+        script: |
+          const result = await github.repos.requestPageBuild({owner: context.repo.owner, repo: context.repo.repo})
+          console.log(result)
